@@ -95,7 +95,7 @@ test('file doesn\'t exist', async t => {
 
 	const code = await pEvent(proc, 'close');
 	t.is(code, 1);
-	t.true(stderr.includes(`Error: Cannot find module '${invalidFile}'\n`));
+	t.regex(stderr, /Error: Cannot find module '.*this-does-not-exist\.js'/);
 });
 
 test('unresolvable project', async t => {
