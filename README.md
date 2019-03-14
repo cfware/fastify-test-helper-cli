@@ -50,3 +50,4 @@ npm test
 [downloads-image]: https://img.shields.io/npm/dm/@cfware/fastify-test-helper-cli.svg
 [downloads-url]: https://npmjs.org/package/@cfware/fastify-test-helper-cli
 [license-image]: https://img.shields.io/npm/l/@cfware/fastify-test-helper-cli.svg
+[@cfware/fastify-test-helper]: https://github.com/cfware/fastify-test-helper#readme
