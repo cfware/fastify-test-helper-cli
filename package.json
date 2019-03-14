@@ -1,0 +1,54 @@
+{
+	"name": "@cfware/fastify-test-helper-cli",
+	"version": "0.1.0",
+	"description": "CLI command to start a server using @cfware/fastify-test-helper",
+	"main": "index.js",
+	"scripts": {
+		"release": "standard-version --sign",
+		"test": "xo && nyc ava -v"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"author": "Corey Farrell",
+	"license": "MIT",
+	"files": [
+		"bin.js"
+	],
+	"bin": {
+		"cfware-fastify-test-helper": "./bin.js"
+	},
+	"keywords": [],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cfware/fastify-test-helper-cli.git"
+	},
+	"bugs": {
+		"url": "https://github.com/cfware/fastify-test-helper-cli/issues"
+	},
+	"homepage": "https://github.com/cfware/fastify-test-helper-cli#readme",
+	"dependencies": {
+		"esm": "^3.2.17",
+		"import-from": "^2.1.0",
+		"pkg-dir": "^4.0.0"
+	},
+	"devDependencies": {
+		"@cfware/fastify-test-helper": "^0.2.0",
+		"ava": "^1.2.1",
+		"nyc": "^13.3.0",
+		"p-event": "^4.0.0",
+		"standard-version": "^5.0.0",
+		"xo": "^0.24.0"
+	},
+	"nyc": {
+		"check-coverage": true,
+		"per-file": true,
+		"lines": 100,
+		"statements": 100,
+		"functions": 100,
+		"branches": 100,
+		"include": [
+			"*.js"
+		]
+	}
+}
