@@ -11,7 +11,7 @@ const testAliasESM = path.resolve(__dirname, 'helpers/test-alias.js');
 const testJSON = path.resolve(__dirname, 'helpers/test-json.json');
 
 test('specific relative esm', t => {
-	const proc = spawn(binFile, [path.relative(pkgDir, testAliasESM)], {
+	const proc = spawn(process.execPath, [binFile, path.relative(pkgDir, testAliasESM)], {
 		cwd: pkgDir
 	});
 
@@ -24,7 +24,7 @@ test('specific relative esm', t => {
 });
 
 test('from outside project', t => {
-	const proc = spawn(binFile, [path.relative(pkgParentDir, testAliasESM)], {
+	const proc = spawn(process.execPath, [binFile, path.relative(pkgParentDir, testAliasESM)], {
 		cwd: pkgParentDir
 	});
 
@@ -37,7 +37,7 @@ test('from outside project', t => {
 });
 
 test('specific json', t => {
-	const proc = spawn(binFile, [path.relative(pkgDir, testJSON)], {
+	const proc = spawn(process.execPath, [binFile, path.relative(pkgDir, testJSON)], {
 		cwd: pkgDir
 	});
 
@@ -50,7 +50,7 @@ test('specific json', t => {
 });
 
 test('demoPage 1', t => {
-	const proc = spawn(binFile, [path.resolve(__dirname, 'helpers/test-demo1')]);
+	const proc = spawn(process.execPath, [binFile, path.resolve(__dirname, 'helpers/test-demo1')]);
 
 	proc.stdout.on('data', data => {
 		t.regex(data.toString(), /^http:\/\/localhost:\d+\/demo1\/\n$/);
@@ -61,7 +61,7 @@ test('demoPage 1', t => {
 });
 
 test('demoPage 2', t => {
-	const proc = spawn(binFile, [path.resolve(__dirname, 'helpers/test-demo2')]);
+	const proc = spawn(process.execPath, [binFile, path.resolve(__dirname, 'helpers/test-demo2')]);
 
 	proc.stdout.on('data', data => {
 		t.regex(data.toString(), /^http:\/\/localhost:\d+\/demo2\/\n$/);
@@ -72,7 +72,7 @@ test('demoPage 2', t => {
 });
 
 test('default from subdir of project', t => {
-	const proc = spawn(binFile, [], {
+	const proc = spawn(process.execPath, [binFile], {
 		cwd: __dirname
 	});
 
@@ -86,7 +86,7 @@ test('default from subdir of project', t => {
 
 test('file doesn\'t exist', async t => {
 	const invalidFile = path.resolve(__dirname, 'helpers', 'this-does-not-exist.js');
-	const proc = spawn(binFile, [invalidFile]);
+	const proc = spawn(process.execPath, [binFile, invalidFile]);
 
 	let stderr = '';
 	proc.stderr.on('data', data => {
@@ -100,7 +100,7 @@ test('file doesn\'t exist', async t => {
 
 test('unresolvable project', async t => {
 	const outOfProject = path.resolve(pkgParentDir, 'out-of-project.js');
-	const proc = spawn(binFile, [outOfProject], {
+	const proc = spawn(process.execPath, [binFile, outOfProject], {
 		cwd: pkgParentDir
 	});
 
