@@ -28,27 +28,17 @@
 	},
 	"homepage": "https://github.com/cfware/fastify-test-helper-cli#readme",
 	"dependencies": {
-		"esm": "^3.2.17",
+		"esm": "^3.2.22",
 		"import-from": "^2.1.0",
-		"pkg-dir": "^4.0.0"
+		"pkg-dir": "^4.1.0"
 	},
 	"devDependencies": {
-		"@cfware/fastify-test-helper": "^0.2.0",
-		"ava": "^1.2.1",
-		"nyc": "^14.0.0",
-		"p-event": "^4.0.0",
-		"standard-version": "^5.0.0",
+		"@cfware/fastify-test-helper": "^0.2.3",
+		"@cfware/nyc": "^0.4.2",
+		"ava": "^1.4.1",
+		"nyc": "^14.1.0",
+		"p-event": "^4.1.0",
+		"standard-version": "^5.0.2",
 		"xo": "^0.24.0"
-	},
-	"nyc": {
-		"check-coverage": true,
-		"per-file": true,
-		"lines": 100,
-		"statements": 100,
-		"functions": 100,
-		"branches": 100,
-		"include": [
-			"*.js"
-		]
 	}
 }
