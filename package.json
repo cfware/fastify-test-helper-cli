@@ -29,7 +29,7 @@
 	"homepage": "https://github.com/cfware/fastify-test-helper-cli#readme",
 	"dependencies": {
 		"esm": "^3.2.22",
-		"import-from": "^2.1.0",
+		"import-from": "^3.0.0",
 		"pkg-dir": "^4.1.0"
 	},
 	"devDependencies": {
