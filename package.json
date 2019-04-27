@@ -1,6 +1,6 @@
 {
 	"name": "@cfware/fastify-test-helper-cli",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "CLI command to start a server using @cfware/fastify-test-helper",
 	"main": "index.js",
 	"scripts": {
