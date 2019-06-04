@@ -12,9 +12,6 @@
 	},
 	"author": "Corey Farrell",
 	"license": "MIT",
-	"files": [
-		"bin.js"
-	],
 	"bin": {
 		"cfware-fastify-test-helper": "./bin.js"
 	},
