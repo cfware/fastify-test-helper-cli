@@ -21,8 +21,8 @@ npm i -g @cfware/fastify-test-helper-cli
 ## Usage
 
 Just run `cfware-fastify-test-helper` from inside your project.  This will pull options
-from the default export of `./test/helpers/fastify-test-helper.config` found relative
-to your project directory.
+from the default export of `./fastify-test-helper.config.js` found relative to your
+project directory.
 
 You can provide an alternative options file `cfware-fastify-test-helper /path/to/options.js`.
 This will find the directory of the project which contains your options file.

@@ -7,8 +7,8 @@ import pEvent from 'p-event';
 const pkgDir = path.resolve(__dirname, '..');
 const pkgParentDir = path.resolve(pkgDir, '..');
 const binFile = path.resolve(pkgDir, 'bin.js');
-const testAliasESM = path.resolve(__dirname, 'helpers/test-alias.js');
-const testJSON = path.resolve(__dirname, 'helpers/test-json.json');
+const testAliasESM = path.resolve(pkgDir, 'helpers/alias.js');
+const testJSON = path.resolve(pkgDir, 'helpers/json.json');
 
 test('specific relative esm', t => {
 	const proc = spawn(process.execPath, [binFile, path.relative(pkgDir, testAliasESM)], {
@@ -16,7 +16,7 @@ test('specific relative esm', t => {
 	});
 
 	proc.stdout.on('data', data => {
-		t.regex(data.toString(), /^http:\/\/localhost:\d+\/test-alias\/\n$/);
+		t.regex(data.toString(), /^http:\/\/localhost:\d+\/alias\/\n$/);
 		proc.kill('SIGINT');
 	});
 
@@ -29,7 +29,7 @@ test('from outside project', t => {
 	});
 
 	proc.stdout.on('data', data => {
-		t.regex(data.toString(), /^http:\/\/localhost:\d+\/test-alias\/\n$/);
+		t.regex(data.toString(), /^http:\/\/localhost:\d+\/alias\/\n$/);
 		proc.kill('SIGINT');
 	});
 
@@ -42,7 +42,7 @@ test('specific json', t => {
 	});
 
 	proc.stdout.on('data', data => {
-		t.regex(data.toString(), /^http:\/\/localhost:\d+\/test-json\/\n$/);
+		t.regex(data.toString(), /^http:\/\/localhost:\d+\/json\/\n$/);
 		proc.kill('SIGINT');
 	});
 
@@ -50,7 +50,7 @@ test('specific json', t => {
 });
 
 test('demoPage 1', t => {
-	const proc = spawn(process.execPath, [binFile, path.resolve(__dirname, 'helpers/test-demo1')]);
+	const proc = spawn(process.execPath, [binFile, path.resolve(pkgDir, 'helpers/demo1')]);
 
 	proc.stdout.on('data', data => {
 		t.regex(data.toString(), /^http:\/\/localhost:\d+\/demo1\/\n$/);
@@ -61,7 +61,7 @@ test('demoPage 1', t => {
 });
 
 test('demoPage 2', t => {
-	const proc = spawn(process.execPath, [binFile, path.resolve(__dirname, 'helpers/test-demo2')]);
+	const proc = spawn(process.execPath, [binFile, path.resolve(pkgDir, 'helpers/demo2')]);
 
 	proc.stdout.on('data', data => {
 		t.regex(data.toString(), /^http:\/\/localhost:\d+\/demo2\/\n$/);
@@ -85,7 +85,7 @@ test('default from subdir of project', t => {
 });
 
 test('file doesn\'t exist', async t => {
-	const invalidFile = path.resolve(__dirname, 'helpers', 'this-does-not-exist.js');
+	const invalidFile = path.resolve(pkgDir, 'helpers', 'this-does-not-exist.js');
 	const proc = spawn(process.execPath, [binFile, invalidFile]);
 
 	let stderr = '';

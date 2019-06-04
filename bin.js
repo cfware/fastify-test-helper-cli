@@ -35,7 +35,7 @@ async function findLoadPath(cwd, fileArg) {
 		return path.resolve(cwd, fileArg);
 	}
 
-	return path.resolve(process.cwd(), 'test/helpers/fastify-test-helper.config');
+	return path.resolve(process.cwd(), 'fastify-test-helper.config.js');
 }
 
 async function main() {
