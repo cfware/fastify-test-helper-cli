@@ -1,8 +1,8 @@
 import path from 'path';
 import {spawn} from 'child_process';
+import {once} from 'events';
 
 import test from 'ava';
-import pEvent from 'p-event';
 
 const pkgDir = path.resolve(__dirname, '..');
 const pkgParentDir = path.resolve(pkgDir, '..');
@@ -20,7 +20,7 @@ test('specific relative esm', t => {
 		proc.kill('SIGINT');
 	});
 
-	return pEvent(proc, 'close');
+	return once(proc, 'close');
 });
 
 test('from outside project', t => {
@@ -33,7 +33,7 @@ test('from outside project', t => {
 		proc.kill('SIGINT');
 	});
 
-	return pEvent(proc, 'close');
+	return once(proc, 'close');
 });
 
 test('specific json', t => {
@@ -46,7 +46,7 @@ test('specific json', t => {
 		proc.kill('SIGINT');
 	});
 
-	return pEvent(proc, 'close');
+	return once(proc, 'close');
 });
 
 test('demoPage 1', t => {
@@ -57,7 +57,7 @@ test('demoPage 1', t => {
 		proc.kill('SIGINT');
 	});
 
-	return pEvent(proc, 'close');
+	return once(proc, 'close');
 });
 
 test('demoPage 2', t => {
@@ -68,7 +68,7 @@ test('demoPage 2', t => {
 		proc.kill('SIGINT');
 	});
 
-	return pEvent(proc, 'close');
+	return once(proc, 'close');
 });
 
 test('default from subdir of project', t => {
@@ -81,7 +81,7 @@ test('default from subdir of project', t => {
 		proc.kill('SIGINT');
 	});
 
-	return pEvent(proc, 'close');
+	return once(proc, 'close');
 });
 
 test('file doesn\'t exist', async t => {
@@ -93,7 +93,7 @@ test('file doesn\'t exist', async t => {
 		stderr += data.toString();
 	});
 
-	const code = await pEvent(proc, 'close');
+	const [code] = await once(proc, 'close');
 	t.is(code, 1);
 	t.regex(stderr, /Error: Cannot find module '.*this-does-not-exist\.js'/);
 });
@@ -109,7 +109,7 @@ test('unresolvable project', async t => {
 		stderr += data.toString();
 	});
 
-	const code = await pEvent(proc, 'close');
+	const [code] = await once(proc, 'close');
 	t.is(code, 1);
 	t.true(stderr.includes('Error: Cannot find project directory\n'));
 });

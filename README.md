@@ -10,7 +10,7 @@ CLI command to start a stand-alone server using [@cfware/fastify-test-helper]
 
 ### Install @cfware/fastify-test-helper-cli
 
-This module requires node.js 8 or above.
+This module requires node.js 12 or above.
 
 ```sh
 npm i -D @cfware/fastify-test-helper
