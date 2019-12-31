@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/cfware/fastify-test-helper-cli/compare/v0.2.1...v0.3.0) (2019-12-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* node.js 12 is now required
+
+### Features
+
+* Update dependencies ([8dde6da](https://github.com/cfware/fastify-test-helper-cli/commit/8dde6daca718896a1da5a7cd45bee9350075a8ae))
+
 ### [0.2.1](https://github.com/cfware/fastify-test-helper-cli/compare/v0.2.0...v0.2.1) (2019-06-05)
 
 
