@@ -30,7 +30,7 @@
 		"pkg-dir": "^4.2.0"
 	},
 	"devDependencies": {
-		"@cfware/fastify-test-helper": "^0.5.0",
+		"@cfware/fastify-test-helper": "^0.6.0",
 		"@cfware/nyc": "^0.6.0",
 		"ava": "^2.0.0",
 		"nyc": "^15.0.0",
